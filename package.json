@@ -1,0 +1,35 @@
+{
+  "name": "@stravigor/signal",
+  "version": "0.5.6",
+  "type": "module",
+  "description": "Communication layer for the Strav framework — mail, notifications, and broadcasting",
+  "license": "MIT",
+  "keywords": ["bun", "framework", "typescript", "strav", "mail", "notification"],
+  "files": ["src/", "package.json", "tsconfig.json", "CHANGELOG.md"],
+  "exports": {
+    ".": "./src/index.ts",
+    "./mail": "./src/mail/index.ts",
+    "./mail/*": "./src/mail/*.ts",
+    "./notification": "./src/notification/index.ts",
+    "./notification/*": "./src/notification/*.ts",
+    "./broadcast": "./src/broadcast/index.ts",
+    "./broadcast/*": "./src/broadcast/*.ts",
+    "./providers": "./src/providers/index.ts",
+    "./providers/*": "./src/providers/*.ts"
+  },
+  "peerDependencies": {
+    "@stravigor/kernel": "workspace:*",
+    "@stravigor/http": "workspace:*",
+    "@stravigor/database": "workspace:*",
+    "@stravigor/queue": "workspace:*"
+  },
+  "dependencies": {
+    "nodemailer": "^6.10.0",
+    "@types/nodemailer": "^6.4.0",
+    "juice": "^11.0.0"
+  },
+  "scripts": {
+    "test": "bun test tests/",
+    "typecheck": "tsc --noEmit"
+  }
+}
