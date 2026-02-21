@@ -34,10 +34,12 @@ await mail.raw({
 
 ### Using a service provider (recommended)
 
-```typescript
-import { MailProvider } from '@stravigor/core/providers'
+Add to `start/providers.ts`:
 
-app.use(new MailProvider())
+```typescript
+import { MailProvider } from '@stravigor/signal'
+
+new MailProvider(),
 ```
 
 The `MailProvider` registers `MailManager` as a singleton. It depends on the `config` provider.
@@ -130,7 +132,7 @@ await mail.to('user@example.com')           // required
 
 `.template(name, data)` renders a `.strav` template via the existing `ViewEngine`. The `name` is prefixed with the configured `templatePrefix` (default `'emails'`), so `.template('welcome', data)` renders `views/emails/welcome.strav`.
 
-Templates support full `.strav` syntax — `@layout`, `@block`, `@include`, `@if`, `@each`, `{{ expr }}`, `{!! raw !!}`.
+Templates support full `.strav` syntax — `@layout`, `@section`, `@show`, `@include`, `@if`, `@each`, `{{ expr }}`, `{!! raw !!}`.
 
 ### Raw content
 
@@ -181,7 +183,7 @@ Templates live under `views/emails/` (or wherever `templatePrefix` points). They
 <body>
   <div class="container">
     <div class="header"><h1>{{ appName }}</h1></div>
-    <div class="content">{!! content !!}</div>
+    <div class="content">@show('content')</div>
     <div class="footer">&copy; {{ year }} {{ appName }}</div>
   </div>
 </body>
@@ -194,7 +196,7 @@ Templates live under `views/emails/` (or wherever `templatePrefix` points). They
 {{-- views/emails/welcome.strav --}}
 @layout('emails.layout')
 
-@block('content')
+@section('content')
 <h2>Welcome, {{ name }}!</h2>
 <p>Thanks for signing up. Your account is ready.</p>
 <p><a class="btn" href="{{ verifyUrl }}">Verify Email</a></p>

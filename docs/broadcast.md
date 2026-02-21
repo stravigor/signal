@@ -6,15 +6,17 @@ Channel-based real-time broadcasting over WebSocket. One connection per client, 
 
 ### Using a service provider (recommended)
 
-```typescript
-import { BroadcastProvider } from '@stravigor/core/providers'
-import { session } from '@stravigor/core/session'
+Add to `start/providers.ts`:
 
-app.use(new BroadcastProvider({
+```typescript
+import { BroadcastProvider } from '@stravigor/signal'
+import { session } from '@stravigor/http'
+
+new BroadcastProvider({
   middleware: [session()],
   pingInterval: 30_000,
   path: '/_broadcast',
-}))
+}),
 ```
 
 The `BroadcastProvider` calls `BroadcastManager.boot()` with the router and shuts down connections on application shutdown.

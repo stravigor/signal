@@ -18,10 +18,12 @@ await notify([user1, user2], new InvoicePaidNotification(invoice))
 
 ### Using a service provider (recommended)
 
-```typescript
-import { NotificationProvider } from '@stravigor/core/providers'
+Add to `start/providers.ts`:
 
-app.use(new NotificationProvider())
+```typescript
+import { NotificationProvider } from '@stravigor/signal'
+
+new NotificationProvider(),
 ```
 
 The `NotificationProvider` registers `NotificationManager` as a singleton and creates the `_stravigor_notifications` table automatically. It depends on the `database` provider.
