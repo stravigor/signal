@@ -1,6 +1,6 @@
 {
   "name": "@stravigor/signal",
-  "version": "0.5.6",
+  "version": "0.5.9",
   "type": "module",
   "description": "Communication layer for the Strav framework — mail, notifications, and broadcasting",
   "license": "MIT",
@@ -20,6 +20,7 @@
   "peerDependencies": {
     "@stravigor/kernel": "workspace:*",
     "@stravigor/http": "workspace:*",
+    "@stravigor/view": "workspace:*",
     "@stravigor/database": "workspace:*",
     "@stravigor/queue": "workspace:*"
   },

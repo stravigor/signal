@@ -1,5 +1,5 @@
 import MailManager from './mail_manager.ts'
-import ViewEngine from '@stravigor/http/view/engine'
+import { ViewEngine } from '@stravigor/view'
 import { inlineCss } from './css_inliner.ts'
 import Queue from '@stravigor/queue/queue/queue'
 import type { MailMessage, MailResult, MailAttachment } from './types.ts'
