@@ -1,6 +1,6 @@
 {
   "name": "@stravigor/signal",
-  "version": "0.6.0",
+  "version": "0.7.0",
   "type": "module",
   "description": "Communication layer for the Strav framework — mail, notifications, and broadcasting",
   "license": "MIT",
